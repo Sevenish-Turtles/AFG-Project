@@ -1,6 +1,15 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="QuestionGrouptext">Create a New Question Group:</string>
+    <string name="QuestionGrouptext">Choose Question Template</string>
     <string name="WelcomeText">Welcome!</string>
+    <string name="NewButtonText">New</string>
+    <string name="PracticeButtonText">Practice</string>
+    <string name="EditButtonText">Edit</string>
+    <string name="EditTemplateText">Edit Template</string>
+    <string name="TemplateNameText">Template Name:</string>
     <string name="ReadyToStudyText">Ready to start studying?</string>
+    <string name="SelectQuestionsText">Select Questions:</string>
+    <string name="NewQuestionsText">Make a New Question</string>
+    <string name="EditQuestionText">Edit Question:</string>
+    <string name="DoneButtonText">Done</string>
 </resources>
