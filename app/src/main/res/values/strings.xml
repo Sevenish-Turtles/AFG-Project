@@ -12,4 +12,14 @@
     <string name="NewQuestionsText">Make a New Question</string>
     <string name="EditQuestionText">Edit Question:</string>
     <string name="DoneButtonText">Done</string>
+    <string name="BackButtonText">Back</string>
+    <string name="QuestionPracticeText">Question Practice</string>
+    <string name="EnterSolutionText">Enter Solution:</string>
+    <string name="CheckButtonText">Check</string>
+    <string name="SolutionButtonText">Solution</string>
+    <string name="SolutionText">Solution</string>
+    <string name="RetryButtonText">Retry</string>
+    <string name="NewQuestionButtonText">New Question</string>
+
+
 </resources>
