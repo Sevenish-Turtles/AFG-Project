@@ -35,35 +35,30 @@
         app:layout_constraintTop_toBottomOf="@+id/QuestionGroupText" />
 
     <LinearLayout
-        android:id="@+id/LinearLayout"
+        android:id="@+id/newQuestLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="70dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="650dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="15dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/EditButton"
+            android:id="@+id/pracButtonQues"
             android:layout_width="wrap_content"
-            android:layout_height="49dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginBottom="48dp"
-            android:text="@string/EditButtonText"
-            android:textSize="18sp" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/PracticeButtonText" />
 
         <Button
-            android:id="@+id/PracticeButton"
+            android:id="@+id/editButtonQues"
             android:layout_width="wrap_content"
-            android:layout_height="54dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="48dp"
-            android:text="@string/PracticeButtonText"
-            android:textSize="18sp" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/EditButtonText" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

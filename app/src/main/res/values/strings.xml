@@ -20,6 +20,20 @@
     <string name="SolutionText">Solution</string>
     <string name="RetryButtonText">Retry</string>
     <string name="NewQuestionButtonText">New Question</string>
+    <string name="EditTemplateTitle">Edit Template</string>
+    <string name="NameText">Name</string>
+    <string name="QuesNameValue">Question Name:</string>
+    <string name="EditQuestionTitle">Edit Question</string>
+    <string name="Textbox">Text:</string>
+    <string name="FixedConstant">Fixed Constants:</string>
+    <string name="VariablesText">Variables:</string>
+    <string name="equationsText">Equations:</string>
+    <string name="FigureText">Figure (Optional):</string>
+    <string name="AnswerText">Answer:</string>
+    <string name="PrecisionText">Precision:</string>
+    <string name="SolutionEditText">Solution:</string>
+    <string name="DeleteQuestionButton">Delete Question</string>
+    <string name="DoneButton">Done</string>
 
 
 </resources>
