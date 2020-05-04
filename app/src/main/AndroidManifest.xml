@@ -13,7 +13,8 @@
         <activity android:name=".NewQuestion" />
         <activity android:name=".Solution" />
         <activity android:name=".QuestionPractice" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".NewQuestion">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

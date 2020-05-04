@@ -54,7 +54,7 @@
             android:text="@string/PracticeButtonText" />
 
         <Button
-            android:id="@+id/editButtonQues"
+            android:id="@+id/editButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
