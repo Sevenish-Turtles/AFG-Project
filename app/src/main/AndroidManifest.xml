@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Test"></activity>
+        <activity android:name=".EditQuestion"/>
         <activity android:name=".NewQuestion" />
         <activity android:name=".Solution" />
         <activity android:name=".QuestionPractice" />
