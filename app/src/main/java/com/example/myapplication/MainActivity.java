@@ -16,7 +16,6 @@ public Button button;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = (Button) findViewById(R.id.EditButton);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
