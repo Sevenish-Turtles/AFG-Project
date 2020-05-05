@@ -11,6 +11,7 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
     public Button newButton;
     public Button editButton;
+    public Button practiceButton;
 
 
     @Override
@@ -18,12 +19,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Button practiceButton = (Button) findViewById(R.id.pracButtonQues);
+
+        practiceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, QuestionPractice.class);
+                startActivity(intent);
+            }
+        });
+
         Button newButton = (Button) findViewById(R.id.NewButton);
 
         newButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NewQuestion.class);
+                Intent intent = new Intent(MainActivity.this, NewTemplate.class);
                 startActivity(intent);
             }
         });
@@ -34,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             newButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, EditQuestion.class);
+                    Intent intent = new Intent(MainActivity.this, EditTemplate.class);
                     startActivity(intent);
                 }
             });
