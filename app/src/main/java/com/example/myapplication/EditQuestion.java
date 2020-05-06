@@ -43,8 +43,7 @@ public class EditQuestion extends AppCompatActivity {
             alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int i) {
-                    Intent intent = new Intent(EditQuestion.this, EditQuestion.class);
-                    startActivity(intent);
+
                 }
             });
             alert.create().show();

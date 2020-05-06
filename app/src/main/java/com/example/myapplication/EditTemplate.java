@@ -65,8 +65,7 @@ public class EditTemplate extends AppCompatActivity {
         alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
-                Intent intent = new Intent(EditTemplate.this, EditTemplate.class);
-                startActivity(intent);
+
             }
         });
         alert.create().show();

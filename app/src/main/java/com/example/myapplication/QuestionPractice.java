@@ -13,6 +13,8 @@ public class QuestionPractice extends AppCompatActivity {
     public Button backButtonQuestionPractice;
     public Button solutionButton;
     public Button editQuestionButton;
+    public Button retryButton;
+    public Button newQuestionPractice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,25 @@ public class QuestionPractice extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(QuestionPractice.this, EditQuestion.class);
+                startActivity(intent);
+            }
+        });
+        Button retryButton = (Button)findViewById(R.id.RetryButton);
+
+        retryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(QuestionPractice.this, QuestionPractice.class);
+                startActivity(intent);
+            }
+        });
+
+        Button newQuestionPractice = (Button)findViewById(R.id.NewQuestionButton);
+
+        newQuestionPractice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(QuestionPractice.this, QuestionPractice.class);
                 startActivity(intent);
             }
         });
