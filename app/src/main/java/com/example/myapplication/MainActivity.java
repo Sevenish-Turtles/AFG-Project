@@ -40,16 +40,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-            Button editButton = (Button) findViewById(R.id.editButton);
+        Button editButton = (Button) findViewById(R.id.editButton);
 
-            newButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, EditTemplate.class);
-                    startActivity(intent);
-                }
-            });
-
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, EditTemplate.class);
+                startActivity(intent);
+            }
+        });
 
         }
 
