@@ -11,7 +11,7 @@
     <string name="SelectQuestionsText">Select Questions:</string>
     <string name="NewQuestionsText">Make a New Question</string>
     <string name="EditQuestionText">Edit Question:</string>
-    <string name="DoneButtonText">Done</string>
+    <string name="SaveButtonText">Save</string>
     <string name="BackButtonText">Back</string>
     <string name="QuestionPracticeText">Question Practice</string>
     <string name="EnterSolutionText">Enter Solution:</string>
@@ -34,5 +34,7 @@
     <string name="SolutionEditText">Solution:</string>
     <string name="DeleteQuestionButton">Delete Question</string>
     <string name="DoneButton">Done</string>
+    <string name="DeleteTemplateButton">Delete Template</string>
+    <string name="NewTemplateText">New Template</string>
 
 </resources>

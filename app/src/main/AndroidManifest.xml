@@ -9,17 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".NewQuestion" />
+        <activity android:name=".NewTemplate"/>
+        <activity android:name=".NewQuestion"/>
+        <activity android:name=".EditQuestion"/>
+        <activity android:name=".EditTemplate" />
         <activity android:name=".Solution" />
         <activity android:name=".QuestionPractice" />
-        <activity android:name=".Test">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+    </activity>
     </application>
 
 </manifest>
