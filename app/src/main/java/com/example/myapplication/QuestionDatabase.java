@@ -18,7 +18,7 @@ public abstract class QuestionDatabase extends RoomDatabase {
         if (instance == null){
             instance = Room.databaseBuilder(context.getApplicationContext(),
                     QuestionDatabase.class, "question_database")
-//                    .fallbackToDestructiveMigration()
+                    .fallbackToDestructiveMigration()
                     .allowMainThreadQueries()
                     .build();
         }

@@ -126,8 +126,10 @@ public class Question {
     private void expressions (String expressions) {
         String[] exps = expressions.split(VAREXP_DELIMETER);
         for (String exp:exps) {
-            String[] params = exp.split(PARAM_DELIMETER);
-            vars.put(params[0],evaluateExpression(params[1]));
+            int splitIndex = exp.indexOf(PARAM_DELIMETER);
+            vars.put(exp.substring(0,splitIndex),
+                    evaluateExpression(
+                            exp.substring(splitIndex+1)));
         }
     }
 
@@ -140,7 +142,7 @@ public class Question {
     public Double evaluateExpression(String expression) {
         try {
             ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
-            expression = format(expression);
+//            expression = format(expression);
                 return (double) engine.eval(expression,new SimpleBindings(vars));
         } catch (ScriptException e) {
             // TODO Auto-generated catch block

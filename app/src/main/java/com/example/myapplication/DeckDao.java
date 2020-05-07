@@ -11,14 +11,17 @@ import java.util.List;
 @Dao
 public interface DeckDao {
     @Insert
-    void insert(QuestionDeckData q);
+    void insert(QuestionDeckData...deck);
 
     @Update
-    void update(QuestionDeckData q);
+    void update(QuestionDeckData deck);
 
     @Delete
-    void delete(QuestionDeckData q);
+    void delete(QuestionDeckData deck);
+
+    @Query("DELETE FROM QuestionDeckData")
+    void clearTable();
 
     @Query("SELECT * FROM QuestionDeckData")
-    List<QuestionDeckData> getAllQuestions();
+    List<QuestionDeckData> getAllDecks();
 }

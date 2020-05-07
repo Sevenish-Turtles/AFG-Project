@@ -22,6 +22,12 @@ public interface QuestionDao {
     @Delete
     void delete(QuestionData q);
 
+    @Query("DELETE FROM QuestionData")
+    void clearTable();
+
     @Query("SELECT * FROM QuestionData")
     List<QuestionData> getAllQuestions();
+
+    @Query("SELECT * FROM QUESTIONDATA WHERE deckName=:deckName")
+    List<QuestionData> getQuestionsForDeck(String deckName);
 }
