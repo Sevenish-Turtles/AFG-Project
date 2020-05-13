@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import java.util.List;
+import java.util.Random;
 
 public class Test extends AppCompatActivity {
 
@@ -15,6 +16,8 @@ public class Test extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
         final QuestionDatabase db = QuestionDatabase.getInstance(this);
+
+
         String questionString = "What is the length of the hypotenuse if the legs are :x: and :y:?";
         String vars = "x,1,10,1 ; y,1,10,1";
         String exps = "hypot,Math.sqrt(x*x+y*y)";
@@ -34,21 +37,35 @@ public class Test extends AppCompatActivity {
         db.deckDao().insert(deck1,deck2);
         db.questionDao().insertAll(q,q2);
 
-        Log.d("Question test", "question size: " + db.questionDao().getAllQuestions().size());
-        Log.d("Question test", "deck size: " + db.deckDao().getAllDecks().size());
-        Log.d("Question test", "hypot deck size: " + db.questionDao().getQuestionsForDeck(deck1.getQuestionDeckName()).size());
+//        Log.d("Question test", "question size: " + db.questionDao().getAllQuestions().size());
+//        Log.d("Question test", "deck size: " + db.deckDao().getAllDecks().size());
+//        Log.d("Question test", "hypot deck size: " + db.questionDao().getQuestionsForDeck(deck1.getQuestionDeckName()).size());
+//
+//        Log.d("Question test","Hypot Question: "+db.questionDao().getQuestionsForDeck(deck2.getQuestionDeckName())
+//        .get(0).getQuestion());
+//
+//        List<QuestionData> questions = db.questionDao().getQuestionsForDeck(deck1.getQuestionDeckName());
+//        Question question1 = new Question(questions.get(0));
+//        Log.d("Question test",question1.getQuestion());
+//        Log.d("Question test",""+question1.getAnswer());
+//        questions = db.questionDao().getQuestionsForDeck(deck2.getQuestionDeckName());
+//        question1 = new Question(questions.get(0));
+//        Log.d("Question test",question1.getQuestion());
+//        Log.d("Question test",""+question1.getAnswer());
 
-        Log.d("Question test","Hypot Question: "+db.questionDao().getQuestionsForDeck(deck2.getQuestionDeckName())
-        .get(0).getQuestion());
-
-        List<QuestionData> questions = db.questionDao().getQuestionsForDeck(deck1.getQuestionDeckName());
-        Question question1 = new Question(questions.get(0));
-        Log.d("Question test",question1.getQuestion());
-        Log.d("Question test",""+question1.getAnswer());
-        questions = db.questionDao().getQuestionsForDeck(deck2.getQuestionDeckName());
-        question1 = new Question(questions.get(0));
-        Log.d("Question test",question1.getQuestion());
-        Log.d("Question test",""+question1.getAnswer());
+        List<QuestionData> questions = db.questionDao().getQuestionsForDeck("Geometry");
+        Random random = new Random();
+        QuestionData data = questions.get(random.nextInt(questions.size()));
+        Question q5 = new Question(data);
+        q5.getQuestion();
+        q5.checkAnswer(0.5);
+        double ans = 239239;
+        if (q5.checkAnswer(ans)){
+            //code for correct answer
+        }
+        else{
+            //code for wrong answer
+        }
     }
 
 
