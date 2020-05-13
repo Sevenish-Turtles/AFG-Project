@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -18,6 +19,9 @@ public class NewTemplate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_template);
+
+        QuestionDatabase db = QuestionDatabase.getInstance(this);
+        Log.d("QuestionTest","New Page: "+db.hashCode()+"");
 
         Button makeNewButtonNewTemplate = (Button) findViewById(R.id.makeNewQuestion);
 
