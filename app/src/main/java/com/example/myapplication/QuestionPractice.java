@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.content.Intent;
 import android.view.View;
 
+import java.util.List;
+import java.util.Random;
+
 
 public class QuestionPractice extends AppCompatActivity {
     public Button backButtonQuestionPractice;
@@ -69,6 +72,22 @@ public class QuestionPractice extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        List<QuestionData> questions = db.questionDao().getQuestionsForDeck("Geometry");
+        Random random = new Random();
+        QuestionData data = questions.get(random.nextInt(questions.size()));
+        Question q5 = new Question(data);
+        d5.getQuestion();
+        d5.checkAnswer(0.5);
+
+        String correct = new String ("Correct!");
+        String incorrect = new String ("Incorrect");
+        if (q5.checkAnswer(ans)){
+            System.out.pritnln(correct);
+        }
+        else {
+            System.out.println(incorrect);
+        }
     }
 
 }
