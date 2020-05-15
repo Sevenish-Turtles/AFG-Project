@@ -69,8 +69,9 @@ public class QuestionPractice extends AppCompatActivity {
         retryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(QuestionPractice.this, QuestionPractice.class);
-                startActivity(intent);
+                retryQuestion();
+//                Intent intent = new Intent(QuestionPractice.this, QuestionPractice.class);
+//                startActivity(intent);
             }
         });
 
@@ -99,6 +100,16 @@ public class QuestionPractice extends AppCompatActivity {
         Log.d("QuestionTest",questions.size()+"");
         QuestionData data = questions.get(random.nextInt(questions.size()));
         question = new Question(data);
+        Log.d("QuestionTest",question.getVariables().toString());
+        Log.d("QuestionTest",question.getVars().toString());
+        TextView questionText = findViewById(R.id.questionText);
+        questionText.setText(question.getQuestion());
+        EditText answerText = findViewById(R.id.answerText);
+        answerText.setText("");
+    }
+
+    public void retryQuestion(){
+        question.initialize();
         Log.d("QuestionTest",question.getVariables().toString());
         Log.d("QuestionTest",question.getVars().toString());
         TextView questionText = findViewById(R.id.questionText);
