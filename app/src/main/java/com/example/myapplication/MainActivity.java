@@ -101,6 +101,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         private void populateDatabaseInitial(){
+            QuestionDatabase db = QuestionDatabase.getInstance(this);
+            db.questionDao().clearTable();
+            db.deckDao().clearTable();
             addQuestionToDatabase("Geometry","Hypotenuse","What is the length of the hypotenuse if the legs are :x: and :y:?",
                     "x,1,10,1 ; y,1,10,1","hypot,Math.sqrt(x*x+y*y)","hypot",.01);
             addQuestionToDatabase("Physics","ramp","What is the normal force of a block of mass :m: on a plane inclined at :deg: degrees?",
