@@ -38,26 +38,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button newButton = (Button) findViewById(R.id.NewButton);
+//        Button newButton = (Button) findViewById(R.id.NewButton);
+//
+//        newButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this, NewTemplate.class);
+//                startActivity(intent);
+//            }
+//        });
 
-        newButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NewTemplate.class);
-                startActivity(intent);
-            }
-        });
 
-
-        Button editButton = (Button) findViewById(R.id.editButton);
-
-        editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, EditTemplate.class);
-                startActivity(intent);
-            }
-        });
+//        Button editButton = (Button) findViewById(R.id.editButton);
+//
+//        editButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MainActivity.this, EditTemplate.class);
+//                startActivity(intent);
+//            }
+//        });
         test();
         Log.d("QuestionTest",""+db.deckDao().getAllDecks());
 
