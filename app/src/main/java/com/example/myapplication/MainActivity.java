@@ -108,6 +108,22 @@ public class MainActivity extends AppCompatActivity {
                     "x,1,10,1 ; y,1,10,1","hypot,Math.sqrt(x*x+y*y)","hypot",.01);
             addQuestionToDatabase("Physics","ramp","What is the normal force of a block of mass :m: on a plane inclined at :deg: degrees?",
                     "deg,15,70,1 ; m,1,50,1", "rads,deg*Math.PI/180 ; FN,(m*9.8)*Math.cos(rads)","FN",.01);
+            addQuestionToDatabase("Physics", "Ball" , "How much time will it take for a ball thrown up on earth with initial velocity :v: meters per second and initial height :h: meters?",
+                   "v, 1, 20, 0.1; h,5,10,.1", "time,(-v-Math.sqrt(v*v+2*9.8*h))/-9.8", "time", 0.01);
+            addQuestionToDatabase("Trigonometry", "Inverse Cosine" , "What is the value of X if the cosine of X is equal to the negative square root of :y: divided by :z:?",
+                   "y, 1, 100, 0.01 ; z, 1, 100, 0.01\n", "X, (Math.acos(-1*Math.sqrt(y)))/(z)\n" , "X", 0.01);
+            addQuestionToDatabase("Logarithms", "Dividing Logarithms" , "What is the value of Y if Y is equal to the log of :x: divided by the log of :z: plus 38?\n",
+            "x, 1, 100, 0.1 ; z, 1, 100, 0.1\n", "Y, ((Math.log10(x))/(Math.log10(z)) + 38)\n", "Y", 0.01);
+            addQuestionToDatabase("Logarithms", "Natural Logarithms" , "What is the value of Y if Y is equal to the natural log of :x: divided by the square root of the log of :z: minus 17?\n",
+            "x, 1, 100, 0.1 ; z, 1, 100, 0.1\n", "Y, (Math.log(x))/(Math.sqrt(Math.log10(z)) - 17\n", "Y", 0.01);
+            addQuestionToDatabase("Trigonometry", "Sine and Cosine" , "What is the value of Y if Y is equal to the sin of :x: degrees minus the cosine of :z: degrees, all divided by 2\n",
+                   "x,0,500,.1 ; z,0,500,.1\n", "Y,(Math.sin(x)-Math.cos(z))/2\n", "Y", 0/01);
+            addQuestionToDatabase("Logarithms", "Natural Logs", "What is the value of y if y equals the square root of the natural log of the given value of :x: times -1\n",
+                   "x,0,200,.1\n", "y,-1* (Math.sqrt(Math.log(x))\n", "Y", 0.01);
+            addQuestionToDatabase("Physics", "Block on Ramp", "What is the height of a block going down a ramp on earth with a given velocity :v: meters per second?\n",
+            "v,-20,50,.01\n", "height,(v*v*0.5)/9.8\n", "height", 0.01);
+            addQuestionToDatabase("Geometry", "Sphere Surface Area", "What is the surface area of a sphere with a radius of :r: meters?\n",
+            "r, 1, 20, 0.1\n", "surface area, (4*PI*r*r)", "surface area", 0.01);
         }
 
         private void addQuestionToDatabase(String deckName, String questionName, String questionText, String vars, String expressions, String answer, double precision){
