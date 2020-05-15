@@ -58,7 +58,9 @@ public class MainActivity extends AppCompatActivity {
 //                startActivity(intent);
 //            }
 //        });
-        test();
+
+
+        populateDatabaseInitial();
         Log.d("QuestionTest",""+db.deckDao().getAllDecks());
 
 
@@ -98,27 +100,19 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-    public void test(){
-        QuestionDatabase db = QuestionDatabase.getInstance(this);
-        String questionString = "What is the length of the hypotenuse if the legs are :x: and :y:?";
-        String vars = "x,1,10,1 ; y,1,10,1";
-        String exps = "hypot,Math.sqrt(x*x+y*y)";
-        String answer = "hypot";
-        double precision = .01;
+        private void populateDatabaseInitial(){
+            addQuestionToDatabase("Geometry","Hypotenuse","What is the length of the hypotenuse if the legs are :x: and :y:?",
+                    "x,1,10,1 ; y,1,10,1","hypot,Math.sqrt(x*x+y*y)","hypot",.01);
+            addQuestionToDatabase("Physics","ramp","What is the normal force of a block of mass :m: on a plane inclined at :deg: degrees?",
+                    "deg,15,70,1 ; m,1,50,1", "rads,deg*Math.PI/180 ; FN,(m*9.8)*Math.cos(rads)","FN",.01);
+        }
 
-        QuestionDeckData deck1 = new QuestionDeckData("Geometry");
-        QuestionDeckData deck2 = new QuestionDeckData("Physics");
-
-        QuestionData q = new QuestionData( deck1.getQuestionDeckName(),"Hypotenuse",questionString,vars,exps,answer,precision);
-        QuestionData q2 = new QuestionData(deck2.getQuestionDeckName(),"ramp","What is the normal force of a block of mass :m: on a plane inclined at :deg: degrees?",
-                "deg,15,70,1 ; m,1,50,1", "rads,deg*Math.PI/180 ; FN,(m*9.8)*Math.cos(rads)","FN",.01);
-
-        db.questionDao().clearTable();
-        db.deckDao().clearTable();
-
-        db.deckDao().insert(deck1,deck2);
-        db.questionDao().insertAll(q,q2);
-    }
+        private void addQuestionToDatabase(String deckName, String questionName, String questionText, String vars, String expressions, String answer, double precision){
+            QuestionDatabase db = QuestionDatabase.getInstance(this);
+            if (db.deckDao().getDecksWithName(deckName).size()==0)
+                db.deckDao().insert(new QuestionDeckData(deckName));
+            db.questionDao().insert(new QuestionData(deckName,questionName,questionText,vars,expressions,answer,precision));
+        }
 
     }
 

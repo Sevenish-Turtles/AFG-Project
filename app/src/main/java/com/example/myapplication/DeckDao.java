@@ -24,4 +24,7 @@ public interface DeckDao {
 
     @Query("SELECT * FROM QuestionDeckData")
     List<QuestionDeckData> getAllDecks();
+
+    @Query("SELECT * FROM QUESTIONDECKDATA WHERE questionDeckName=:deckName")
+    List<QuestionDeckData> getDecksWithName(String deckName);
 }
