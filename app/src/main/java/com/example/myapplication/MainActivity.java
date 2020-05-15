@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     public Button editButton;
     public Button practiceButton;
     public String chosenDeck;
+    public static final String CHOSEN_DECK = "com.example.myapplication.example.chosenDeck";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, QuestionPractice.class);
+                intent.putExtra(CHOSEN_DECK,chosenDeck);
                 startActivity(intent);
             }
         });
@@ -82,11 +84,11 @@ public class MainActivity extends AppCompatActivity {
                 ));
 
                 button.setText(deck.getQuestionDeckName());
-
+                final String DECK_NAME = deck.getQuestionDeckName();
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ButtonClicked();
+                        chosenDeck = DECK_NAME;
                     }
                 });
 
@@ -95,10 +97,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }
-
-    private void ButtonClicked() {
-        Toast.makeText(this,"Button clicked",Toast.LENGTH_SHORT).show();
-    }
 
     public void test(){
         QuestionDatabase db = QuestionDatabase.getInstance(this);

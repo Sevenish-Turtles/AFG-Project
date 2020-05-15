@@ -36,5 +36,6 @@
     <string name="DoneButton">Done</string>
     <string name="DeleteTemplateButton">Delete Template</string>
     <string name="NewTemplateText">New Template</string>
+    <string name="AnswerHint">Enter Answer Here</string>
 
 </resources>

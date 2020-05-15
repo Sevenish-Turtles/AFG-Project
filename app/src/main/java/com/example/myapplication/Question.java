@@ -69,6 +69,12 @@ public class Question {
     public double getAnswer(){
         return (double) vars.get(answer);
     }
+    public HashMap getVars(){
+        return vars;
+    }
+    public String getVariables(){
+        return variables;
+    }
 
     /**
      * replaces variable names in question surrounded by VAR_IDENTIFIER
@@ -77,15 +83,17 @@ public class Question {
      * @return question String with variables replaced by appropriate double values
      */
     private String substituteVarsInQuestion(String question) {
+        String ret = new String(question);
         for(String var:vars.keySet()) {
             try {
-                question = question.replaceAll(VAR_IDENTIFIER+var+VAR_IDENTIFIER,
+                 ret = ret.replaceAll(VAR_IDENTIFIER+var+VAR_IDENTIFIER,
                         Double.toString((Double) vars.get(var)));
             }
             catch (ClassCastException e) {
+                continue;
             }
         }
-        return question;
+        return ret;
     }
 
     /**
@@ -107,6 +115,7 @@ public class Question {
      */
     private HashMap<String,Object> variables(String variables){
         String[] vars = variables.split(VAREXP_DELIMETER);
+//        Log.d("QuestionTest",Arrays.toString(vars));
         HashMap<String,Object> ret = new HashMap<>();
         for (String var:vars) {
             String[] params = var.split(PARAM_DELIMETER);

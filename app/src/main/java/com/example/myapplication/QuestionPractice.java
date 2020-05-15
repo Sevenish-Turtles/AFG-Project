@@ -4,10 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import android.util.Log;
 import android.widget.Button;
 import android.content.Intent;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -18,11 +23,17 @@ public class QuestionPractice extends AppCompatActivity {
     public Button editQuestionButton;
     public Button retryButton;
     public Button newQuestionPractice;
+    public String deck;
+    public List<QuestionData> questions;
+    public Question question;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_practice);
+
+        Intent intent = getIntent();
+        intent.getStringExtra(MainActivity.CHOSEN_DECK);
 
         Button backButtonQuestionPractice = (Button)findViewById(R.id.BackButton);
 
@@ -73,20 +84,54 @@ public class QuestionPractice extends AppCompatActivity {
             }
         });
 
-        List<QuestionData> questions = db.questionDao().getQuestionsForDeck("Geometry");
-        Random random = new Random();
-        QuestionData data = questions.get(random.nextInt(questions.size()));
-        Question q5 = new Question(data);
-        d5.getQuestion();
-        d5.checkAnswer(0.5);
+        final QuestionDatabase db = QuestionDatabase.getInstance(this);
+        setDeck("Geometry");
+        questions = db.questionDao().getQuestionsForDeck(deck);
+        askQuestion();
+    }
 
-        String correct = new String ("Correct!");
-        String incorrect = new String ("Incorrect");
-        if (q5.checkAnswer(ans)){
-            System.out.pritnln(correct);
+    public void newQuestion(View v){
+        askQuestion();
+    }
+
+    public void askQuestion() {
+        Random random = new Random();
+        Log.d("QuestionTest",questions.size()+"");
+        QuestionData data = questions.get(random.nextInt(questions.size()));
+        question = new Question(data);
+        Log.d("QuestionTest",question.getVariables().toString());
+        Log.d("QuestionTest",question.getVars().toString());
+        TextView questionText = findViewById(R.id.questionText);
+        questionText.setText(question.getQuestion());
+        EditText answerText = findViewById(R.id.answerText);
+        answerText.setText("");
+    }
+
+    public void setDeck(String deck){
+        this.deck = deck;
+    }
+
+    public boolean checkAnswer(){
+        EditText answerText = findViewById(R.id.answerText);
+        double answer;
+        try {
+            answer = Double.parseDouble(answerText.getText().toString());
         }
-        else {
-            System.out.println(incorrect);
+        catch (Exception e){
+            answer = 0;
+        }
+        return question.checkAnswer(answer);
+    }
+
+    public void PerformCheckAnswer(View v){
+        boolean correct = checkAnswer();
+        if (correct) {
+            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT);
+            Log.d("QuestionTest","Correct");
+        }
+        if (!correct) {
+            Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT);
+            Log.d("QuestionTest","Incorrect");
         }
     }
 
