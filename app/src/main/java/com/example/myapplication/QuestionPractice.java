@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -55,15 +56,15 @@ public class QuestionPractice extends AppCompatActivity {
             }
         });
 
-        Button editQuestionButton = (Button)findViewById(R.id.EditQuestionButton);
-
-        editQuestionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(QuestionPractice.this, EditQuestion.class);
-                startActivity(intent);
-            }
-        });
+//        Button editQuestionButton = (Button)findViewById(R.id.EditQuestionButton);
+//
+//        editQuestionButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(QuestionPractice.this, EditQuestion.class);
+//                startActivity(intent);
+//            }
+//        });
         Button retryButton = (Button)findViewById(R.id.RetryButton);
 
         retryButton.setOnClickListener(new View.OnClickListener() {
@@ -75,15 +76,15 @@ public class QuestionPractice extends AppCompatActivity {
             }
         });
 
-        Button newQuestionPractice = (Button)findViewById(R.id.NewQuestionButton);
-
-        newQuestionPractice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(QuestionPractice.this, QuestionPractice.class);
-                startActivity(intent);
-            }
-        });
+//        Button newQuestionPractice = (Button)findViewById(R.id.NewQuestionButton);
+//
+//        newQuestionPractice.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(QuestionPractice.this, QuestionPractice.class);
+//                startActivity(intent);
+//            }
+//        });
 
         final QuestionDatabase db = QuestionDatabase.getInstance(this);
         setDeck("Geometry");
@@ -136,13 +137,14 @@ public class QuestionPractice extends AppCompatActivity {
 
     public void PerformCheckAnswer(View v){
         boolean correct = checkAnswer();
+        Button answer = findViewById(R.id.CheckButton);
         if (correct) {
-            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT);
-            Log.d("QuestionTest","Correct");
+          answer.setBackgroundColor(Color.GREEN);
+          answer.setText("CORRECT");
         }
         if (!correct) {
-            Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT);
-            Log.d("QuestionTest","Incorrect");
+            answer.setBackgroundColor(Color.RED);
+            answer.setText("WRONG");
         }
     }
 
