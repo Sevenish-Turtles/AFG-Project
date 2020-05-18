@@ -89,6 +89,7 @@ public class QuestionPractice extends AppCompatActivity {
         final QuestionDatabase db = QuestionDatabase.getInstance(this);
         questions = db.questionDao().getQuestionsForDeck(deck);
         askQuestion();
+        //
     }
 
     public void newQuestion(View v){
