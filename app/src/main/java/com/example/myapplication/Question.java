@@ -69,6 +69,9 @@ public class Question {
     public double getAnswer(){
         return (double) vars.get(answer);
     }
+    public double getAnswerPrecision(){
+        return answerPrecision;
+    }
     public HashMap getVars(){
         return vars;
     }

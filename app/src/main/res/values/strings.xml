@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="QuestionGrouptext">Choose Question Template</string>
+    <string name="QuestionGrouptext">Choose questions and hit practice</string>
+    <string name="title">StudySMART</string>
     <string name="WelcomeText">Welcome!</string>
     <string name="NewButtonText">New</string>
     <string name="PracticeButtonText">Practice</string>

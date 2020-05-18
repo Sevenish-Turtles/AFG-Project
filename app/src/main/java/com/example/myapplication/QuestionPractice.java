@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -33,7 +34,7 @@ public class QuestionPractice extends AppCompatActivity {
         setContentView(R.layout.activity_question_practice);
 
         Intent intent = getIntent();
-        intent.getStringExtra(MainActivity.CHOSEN_DECK);
+        deck = intent.getStringExtra(MainActivity.CHOSEN_DECK);
 
         Button backButtonQuestionPractice = (Button)findViewById(R.id.BackButton);
 
@@ -45,25 +46,25 @@ public class QuestionPractice extends AppCompatActivity {
             }
         });
 
-        Button solutionButton = (Button)findViewById(R.id.SolutionButton);
+//        Button solutionButton = (Button)findViewById(R.id.SolutionButton);
+//
+//        solutionButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(QuestionPractice.this, Solution.class);
+//                startActivity(intent);
+//            }
+//        });
 
-        solutionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(QuestionPractice.this, Solution.class);
-                startActivity(intent);
-            }
-        });
-
-        Button editQuestionButton = (Button)findViewById(R.id.EditQuestionButton);
-
-        editQuestionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(QuestionPractice.this, EditQuestion.class);
-                startActivity(intent);
-            }
-        });
+//        Button editQuestionButton = (Button)findViewById(R.id.EditQuestionButton);
+//
+//        editQuestionButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(QuestionPractice.this, EditQuestion.class);
+//                startActivity(intent);
+//            }
+//        });
         Button retryButton = (Button)findViewById(R.id.RetryButton);
 
         retryButton.setOnClickListener(new View.OnClickListener() {
@@ -80,18 +81,12 @@ public class QuestionPractice extends AppCompatActivity {
         newQuestionPractice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(QuestionPractice.this, QuestionPractice.class);
-                startActivity(intent);
+                askQuestion();
             }
         });
 
         final QuestionDatabase db = QuestionDatabase.getInstance(this);
-        setDeck("Geometry");
         questions = db.questionDao().getQuestionsForDeck(deck);
-        askQuestion();
-    }
-
-    public void newQuestion(View v){
         askQuestion();
     }
 
@@ -106,6 +101,7 @@ public class QuestionPractice extends AppCompatActivity {
         questionText.setText(question.getQuestion());
         EditText answerText = findViewById(R.id.answerText);
         answerText.setText("");
+        resetCheckButton();
     }
 
     public void retryQuestion(){
@@ -116,10 +112,13 @@ public class QuestionPractice extends AppCompatActivity {
         questionText.setText(question.getQuestion());
         EditText answerText = findViewById(R.id.answerText);
         answerText.setText("");
+        resetCheckButton();
     }
 
-    public void setDeck(String deck){
-        this.deck = deck;
+    public void resetCheckButton(){
+        Button checkAnswerButton = findViewById(R.id.CheckButton);
+        checkAnswerButton.setTextColor(Color.BLACK);
+        checkAnswerButton.setText("Check");
     }
 
     public boolean checkAnswer(){
@@ -129,20 +128,21 @@ public class QuestionPractice extends AppCompatActivity {
             answer = Double.parseDouble(answerText.getText().toString());
         }
         catch (Exception e){
-            answer = 0;
+            answer = Double.NaN;
         }
         return question.checkAnswer(answer);
     }
 
     public void PerformCheckAnswer(View v){
         boolean correct = checkAnswer();
+        Button answer = findViewById(R.id.CheckButton);
         if (correct) {
-            Toast.makeText(this, "Correct", Toast.LENGTH_SHORT);
-            Log.d("QuestionTest","Correct");
+          answer.setTextColor(Color.GREEN);
+//          answer.setText("CORRECT");
         }
         if (!correct) {
-            Toast.makeText(this, "Incorrect", Toast.LENGTH_SHORT);
-            Log.d("QuestionTest","Incorrect");
+            answer.setTextColor(Color.RED);
+//            answer.setText("WRONG");
         }
     }
 
