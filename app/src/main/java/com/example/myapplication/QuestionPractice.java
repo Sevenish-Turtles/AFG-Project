@@ -71,23 +71,22 @@ public class QuestionPractice extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 retryQuestion();
-               Intent intent = new Intent(QuestionPractice.this, QuestionPractice.class);
-                startActivity(intent);
+//                Intent intent = new Intent(QuestionPractice.this, QuestionPractice.class);
+//                startActivity(intent);
             }
         });
 
-        Button newQuestionPractice = (Button)findViewById(R.id.NewQuestionButton);
-
-        newQuestionPractice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(QuestionPractice.this, QuestionPractice.class);
-                startActivity(intent);
-            }
-        });
+//        Button newQuestionPractice = (Button)findViewById(R.id.NewQuestionButton);
+//
+//        newQuestionPractice.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(QuestionPractice.this, QuestionPractice.class);
+//                startActivity(intent);
+//            }
+//        });
 
         final QuestionDatabase db = QuestionDatabase.getInstance(this);
-        setDeck("Geometry");
         questions = db.questionDao().getQuestionsForDeck(deck);
         askQuestion();
     }
