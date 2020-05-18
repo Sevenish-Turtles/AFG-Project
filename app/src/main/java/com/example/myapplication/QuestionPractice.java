@@ -76,17 +76,22 @@ public class QuestionPractice extends AppCompatActivity {
             }
         });
 
-        Button newQuestionPractice = (Button)findViewById(R.id.NewQuestionButton);
-
-        newQuestionPractice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                askQuestion();
-            }
-        });
+//        Button newQuestionPractice = (Button)findViewById(R.id.NewQuestionButton);
+//
+//        newQuestionPractice.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(QuestionPractice.this, QuestionPractice.class);
+//                startActivity(intent);
+//            }
+//        });
 
         final QuestionDatabase db = QuestionDatabase.getInstance(this);
         questions = db.questionDao().getQuestionsForDeck(deck);
+        askQuestion();
+    }
+
+    public void newQuestion(View v){
         askQuestion();
     }
 
@@ -101,7 +106,6 @@ public class QuestionPractice extends AppCompatActivity {
         questionText.setText(question.getQuestion());
         EditText answerText = findViewById(R.id.answerText);
         answerText.setText("");
-        resetCheckButton();
     }
 
     public void retryQuestion(){
@@ -112,13 +116,10 @@ public class QuestionPractice extends AppCompatActivity {
         questionText.setText(question.getQuestion());
         EditText answerText = findViewById(R.id.answerText);
         answerText.setText("");
-        resetCheckButton();
     }
 
-    public void resetCheckButton(){
-        Button checkAnswerButton = findViewById(R.id.CheckButton);
-        checkAnswerButton.setTextColor(Color.BLACK);
-        checkAnswerButton.setText("Check");
+    public void setDeck(String deck){
+        this.deck = deck;
     }
 
     public boolean checkAnswer(){
@@ -128,7 +129,7 @@ public class QuestionPractice extends AppCompatActivity {
             answer = Double.parseDouble(answerText.getText().toString());
         }
         catch (Exception e){
-            answer = Double.NaN;
+            answer = 0;
         }
         return question.checkAnswer(answer);
     }
@@ -137,12 +138,12 @@ public class QuestionPractice extends AppCompatActivity {
         boolean correct = checkAnswer();
         Button answer = findViewById(R.id.CheckButton);
         if (correct) {
-          answer.setTextColor(Color.GREEN);
-//          answer.setText("CORRECT");
+          answer.setBackgroundColor(Color.GREEN);
+          answer.setText("CORRECT");
         }
         if (!correct) {
-            answer.setTextColor(Color.RED);
-//            answer.setText("WRONG");
+            answer.setBackgroundColor(Color.RED);
+            answer.setText("WRONG");
         }
     }
 
