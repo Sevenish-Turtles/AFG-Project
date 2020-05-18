@@ -37,5 +37,7 @@
     <string name="DeleteTemplateButton">Delete Template</string>
     <string name="NewTemplateText">New Template</string>
     <string name="AnswerHint">Enter Answer Here</string>
+    <string name="AccuracyText">Answer to "+question.getPrecision()+" for accuracy</string>
+
 
 </resources>

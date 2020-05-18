@@ -153,5 +153,18 @@
                 android:text="@string/NewQuestionButtonText" />
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/AccuracyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="425dp"
+            android:layout_marginTop="350dp"
+            android:layout_marginBottom="25dp"
+            android:text="@string/AccuracyText"
+            app:layout_constraintBottom_toBottomOf="@+id/questionText"
+            app:layout_constraintEnd_toStartOf="@+id/questionText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
