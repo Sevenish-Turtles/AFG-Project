@@ -34,7 +34,7 @@ public class QuestionPractice extends AppCompatActivity {
         setContentView(R.layout.activity_question_practice);
 
         Intent intent = getIntent();
-        intent.getStringExtra(MainActivity.CHOSEN_DECK);
+        deck = intent.getStringExtra(MainActivity.CHOSEN_DECK);
 
         Button backButtonQuestionPractice = (Button)findViewById(R.id.BackButton);
 
@@ -46,15 +46,15 @@ public class QuestionPractice extends AppCompatActivity {
             }
         });
 
-        Button solutionButton = (Button)findViewById(R.id.SolutionButton);
-
-        solutionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(QuestionPractice.this, Solution.class);
-                startActivity(intent);
-            }
-        });
+//        Button solutionButton = (Button)findViewById(R.id.SolutionButton);
+//
+//        solutionButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(QuestionPractice.this, Solution.class);
+//                startActivity(intent);
+//            }
+//        });
 
 //        Button editQuestionButton = (Button)findViewById(R.id.EditQuestionButton);
 //
@@ -71,20 +71,20 @@ public class QuestionPractice extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 retryQuestion();
-//                Intent intent = new Intent(QuestionPractice.this, QuestionPractice.class);
-//                startActivity(intent);
+               Intent intent = new Intent(QuestionPractice.this, QuestionPractice.class);
+                startActivity(intent);
             }
         });
 
-//        Button newQuestionPractice = (Button)findViewById(R.id.NewQuestionButton);
-//
-//        newQuestionPractice.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(QuestionPractice.this, QuestionPractice.class);
-//                startActivity(intent);
-//            }
-//        });
+        Button newQuestionPractice = (Button)findViewById(R.id.NewQuestionButton);
+
+        newQuestionPractice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(QuestionPractice.this, QuestionPractice.class);
+                startActivity(intent);
+            }
+        });
 
         final QuestionDatabase db = QuestionDatabase.getInstance(this);
         setDeck("Geometry");

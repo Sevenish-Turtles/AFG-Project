@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         chosenDeck = DECK_NAME;
+                        Log.d("QuestionTest",chosenDeck);
                     }
                 });
 
