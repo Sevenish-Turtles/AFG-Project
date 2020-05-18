@@ -9,17 +9,27 @@
 
     <TextView
         android:id="@+id/QuestionGroupText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="170dp"
+        android:layout_height="45dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="636dp"
-        android:text="@string/QuestionGrouptext"
+        android:text="@string/title"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/SelectQuestionsText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/QuestionGroupText" />
 
     <LinearLayout
         android:id="@+id/newQuestLayout"
@@ -47,12 +57,14 @@
         android:layout_width="0dp"
         android:layout_height="380dp"
         android:layout_marginStart="15dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/newQuestLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.684"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <TableLayout
             android:id="@+id/buttonsTable"
@@ -71,10 +83,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
         </TableLayout>
     </ScrollView>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="7dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

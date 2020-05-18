@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 //    public Button practiceButton;
     public String chosenDeck = "";
     public static final String CHOSEN_DECK = "com.example.myapplication.example.chosenDeck";
+    public Button chosenButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                         TableLayout.LayoutParams.MATCH_PARENT,
                         1.0f
                 ));
-                Button button = new Button(this);
+                final Button button = new Button(this);
                 button.setLayoutParams(new TableRow.LayoutParams(
                         TableRow.LayoutParams.MATCH_PARENT,
                         TableRow.LayoutParams.MATCH_PARENT,
@@ -89,12 +90,16 @@ public class MainActivity extends AppCompatActivity {
                 ));
 
                 button.setText(deck.getQuestionDeckName());
+
                 final String DECK_NAME = deck.getQuestionDeckName();
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         chosenDeck = DECK_NAME;
                         Log.d("QuestionTest",chosenDeck);
+                        chosenButton = button;
+                        button.setHighlightColor(Color.GREEN);
+                        showSelectedButton();
                     }
                 });
 
@@ -102,6 +107,17 @@ public class MainActivity extends AppCompatActivity {
                 buttonList.addView(row);
 
             }
+        }
+
+        public void showSelectedButton(){
+            for (View view:findViewById(R.id.buttonsTable).getTouchables()) {
+                Button button = (Button) view;
+                if (button == chosenButton)
+                    button.setTextColor(Color.BLUE);
+                else
+                    button.setTextColor(Color.BLACK);
+            }
+
         }
 
         private void populateDatabaseInitial(){
