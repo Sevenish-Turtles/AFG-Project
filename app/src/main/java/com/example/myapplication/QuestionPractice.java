@@ -139,13 +139,13 @@ public class QuestionPractice extends AppCompatActivity {
     public void PerformCheckAnswer(View v){
         boolean correct = checkAnswer();
         Button answer = findViewById(R.id.CheckButton);
-        if (correct) {
+        TextView answerText = findViewById(R.id.answerText);
+        if (answerText.getText().toString().isEmpty());
+        else if (correct) {
             answer.setTextColor(Color.GREEN);
-         answer.setText("CORRECT");
         }
-        if (!correct) {
+        else if (!correct) {
             answer.setTextColor(Color.RED);
-           answer.setText("WRONG");
         }
 
     }
