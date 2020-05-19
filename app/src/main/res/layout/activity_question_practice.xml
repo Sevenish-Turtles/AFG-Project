@@ -7,12 +7,8 @@
     tools:context=".QuestionPractice">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="490dp"
-        android:layout_height="853dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_width="593dp"
+        android:layout_height="956dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
@@ -46,59 +42,40 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/questionText"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="75dp"
-            android:layout_marginBottom="44dp"
-            app:layout_constraintBottom_toTopOf="@+id/CheckButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/QuestionPracticeText"
-            app:layout_constraintVertical_bias="0.0" />
-
         <EditText
             android:id="@+id/answerText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
             android:layout_marginBottom="44dp"
             android:ems="10"
             android:hint="@string/AnswerHint"
             android:inputType="textPersonName|numberDecimal"
             app:layout_constraintBottom_toBottomOf="@+id/CheckButton"
-            app:layout_constraintStart_toEndOf="@+id/EnterSolutionText"
-            app:layout_constraintTop_toBottomOf="@+id/questionText" />
+            app:layout_constraintStart_toEndOf="@+id/EnterSolutionText" />
 
         <TextView
             android:id="@+id/EnterSolutionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginBottom="129dp"
             android:text="@string/EnterSolutionText"
             android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/LinearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.248"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/questionText" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/CheckButton"
             android:layout_width="159dp"
             android:layout_height="49dp"
-            android:layout_marginTop="316dp"
             android:layout_marginBottom="100dp"
             android:onClick="PerformCheckAnswer"
             android:text="@string/CheckButtonText"
             app:layout_constraintBottom_toTopOf="@+id/LinearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.773"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/questionText" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <LinearLayout
             android:id="@+id/LinearLayout"
@@ -146,19 +123,6 @@
                 android:text="@string/RetryButtonText" />
 
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/AccuracyText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="425dp"
-            android:layout_marginTop="350dp"
-            android:layout_marginBottom="25dp"
-            android:text="@string/AccuracyText"
-            app:layout_constraintBottom_toBottomOf="@+id/questionText"
-            app:layout_constraintEnd_toStartOf="@+id/questionText"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
