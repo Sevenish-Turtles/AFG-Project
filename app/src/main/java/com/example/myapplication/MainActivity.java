@@ -95,11 +95,10 @@ public class MainActivity extends AppCompatActivity {
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                      button.setBackgroundColor(Color.GREEN);
+
                         chosenDeck = DECK_NAME;
                         Log.d("QuestionTest",chosenDeck);
                         chosenButton = button;
-                        button.setHighlightColor(Color.GREEN);
                         showSelectedButton();
                     }
                 });

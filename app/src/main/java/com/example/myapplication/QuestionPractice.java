@@ -103,6 +103,8 @@ public class QuestionPractice extends AppCompatActivity {
         EditText answerText = findViewById(R.id.answerText);
         answerText.setText("");
         resetCheckButton();
+        TextView accuracyText = findViewById(R.id.accuracyText);
+        accuracyText.setText("Answer to " + question.getAnswerPrecision() + " precision ");
     }
 
     public void retryQuestion(){
@@ -137,14 +139,16 @@ public class QuestionPractice extends AppCompatActivity {
     public void PerformCheckAnswer(View v){
         boolean correct = checkAnswer();
         Button answer = findViewById(R.id.CheckButton);
-        TextView answerText = findViewById(R.id.answerText);
-        if (answerText.getText().toString().isEmpty());
-        else if (correct) {
-          answer.setTextColor(Color.GREEN);
+        if (correct) {
+            answer.setTextColor(Color.GREEN);
+         answer.setText("CORRECT");
         }
-        else if (!correct) {
+        if (!correct) {
             answer.setTextColor(Color.RED);
+           answer.setText("WRONG");
         }
+
     }
 
 }
+
