@@ -10,6 +10,7 @@ import java.util.List;
 
 @Dao
 public interface DeckDao {
+
     @Insert
     void insert(QuestionDeckData...deck);
 

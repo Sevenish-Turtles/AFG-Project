@@ -34,14 +34,9 @@ public class QuestionData {
         this.answerPrecision = answerPrecision;
     }
 
-//    public void setQuestion_id(int question_id) {
-//        this.question_id = question_id;
-//    }
 
     public String getDeckName() { return deckName; }
-//    public int getQuestion_id() {
-//        return question_id;
-//    }
+
 
     public String getQuestionName() {
         return questionName;

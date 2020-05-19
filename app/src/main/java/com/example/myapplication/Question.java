@@ -39,6 +39,11 @@ public class Question {
         this.initialize();
     }
 
+    /**
+     * Initializes question with the information stored in provided
+     * QuestionData object from database
+     * @param q
+     */
     public Question(QuestionData q) {
         this.variables = q.getVariables();
         this.expressions = q.getExpressions();
@@ -66,9 +71,18 @@ public class Question {
         return substituteVarsInQuestion(question);
     }
 
+    /**
+     * gets double value of answer
+     * @return odouble value of answer
+     */
     public double getAnswer(){
         return (double) vars.get(answer);
     }
+
+    /**
+     * gets the precision of the answer
+     * @return precision of the answer
+     */
     public double getAnswerPrecision(){
         return answerPrecision;
     }

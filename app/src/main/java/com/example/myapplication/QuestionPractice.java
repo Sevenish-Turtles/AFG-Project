@@ -91,6 +91,9 @@ public class QuestionPractice extends AppCompatActivity {
         //
     }
 
+    /**
+     * asks a new question to the user 
+     */
     public void askQuestion() {
         Random random = new Random();
         Log.d("QuestionTest",questions.size()+"");
@@ -107,6 +110,9 @@ public class QuestionPractice extends AppCompatActivity {
         accuracyText.setText("Answer to " + question.getAnswerPrecision() + " precision ");
     }
 
+    /**
+     * randomizes the numbers of the current question
+     */
     public void retryQuestion(){
         question.initialize();
         Log.d("QuestionTest",question.getVariables().toString());
@@ -118,12 +124,19 @@ public class QuestionPractice extends AppCompatActivity {
         resetCheckButton();
     }
 
+    /**
+     * resets the check button if it was red or green
+     */
     public void resetCheckButton(){
         Button checkAnswerButton = findViewById(R.id.CheckButton);
         checkAnswerButton.setTextColor(Color.BLACK);
         checkAnswerButton.setText("Check");
     }
 
+    /**
+     * checks if the user's answer is correct
+     * @return true if the user's answer is correct, false otherwise
+     */
     public boolean checkAnswer(){
         EditText answerText = findViewById(R.id.answerText);
         double answer;
@@ -136,6 +149,10 @@ public class QuestionPractice extends AppCompatActivity {
         return question.checkAnswer(answer);
     }
 
+    /**
+     * Checks answer and tells user if they are correct or wrong
+     * @param v button which checks answer
+     */
     public void PerformCheckAnswer(View v){
         boolean correct = checkAnswer();
         Button answer = findViewById(R.id.CheckButton);
